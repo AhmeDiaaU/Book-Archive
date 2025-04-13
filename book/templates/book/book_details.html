@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}   
+    {{ book.title }}
+{% endblock %}
+
+{% block cssfile %}
+<style>
+    .book-details {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+    .book-title {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+    }
+    .book-description {
+        font-size: 1.1rem;
+        color: #34495e;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    .book-author {
+        color: #7f8c8d;
+        font-style: italic;
+    }
+    .book-rating {
+        background-color: #f39c12;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        display: inline-block;
+    }
+    .best-seller-badge {
+        background-color: #27ae60;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        display: inline-block;
+        margin-left: 1rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="book-details">
+    <h1 class="book-title">{{ book.title }}</h1>
+    <h3 class="book-author">By {{ book.author }}</h3>
+    
+    <div class="book-description">
+        {{ book.description }}
+    </div>
+    
+    <div class="book-meta">
+        <span class="book-rating">Rating: {{ book.rating }}/5.0</span>
+        {% if book.is_best_seller %}
+            <span class="best-seller-badge">Bestseller</span>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
