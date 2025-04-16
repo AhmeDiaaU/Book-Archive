@@ -8,12 +8,12 @@ def index(request):
         "books" : a_books  
             }
     return render(request, 'book/index.html' , books)
-def book_details(request , id):
+def book_details(request , slug):
     # try:
     #    book = book_values.objects.get(pk = id)
     # except :
     #     raise Http404 # we got book by its id 
-    book = get_object_or_404(book_values , pk = id) # it will raise an error if its not
+    book = get_object_or_404(book_values , slug = slug) # it will raise an error if its not
     return render(request , 'book/book_details.html' , {
         "book" : book
      })
